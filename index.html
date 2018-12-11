@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- <link rel="stylesheet" href="css/main.css"> -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Шашки</title>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<body>
+  <!-- <div class="left_bar">
+    <ul id="messages"></ul>
+    <form action="">
+      <input id="c" autocomplete="off" />
+      <input id="m" autocomplete="off" />
+      <button>send</button>
+    </form>
+  </div> -->
+  <!-- <form action="" id="formName" method="get" style="position: fixed; right: 0; top: 0; width: 100vw; height: 100vh; z-index: 999999999; display: flex; justify-content: center; align-items: center">
+    <input id="nameV" type="text" placeholder="Введите имя игрока">
+    <input id="nameB" type="button" value="Далее">
+  </form> -->
+  <!-- <div style="position: fixed; right: 0; top: 0; width: 70px; height: 70px; background: yellow" onclick="test()"></div> -->
+  <div class="right_bar">
+    <div class="element" id="1"></div>
+    <div class="element" id="2"></div>
+    <div class="element" id="3"></div>
+    <div class="element" id="4"></div>
+    <div class="element" id="5"></div>
+    <div class="element" id="6"></div>
+    <div class="element" id="7"></div>
+    <div class="element" id="8"></div>
+    <div class="element" id="9"></div>
+    <div class="element" id="10"></div>
+    <div class="element" id="11"></div>
+    <div class="element" id="12"></div>
+    <div class="element" id="13"></div>
+    <div class="element" id="14"></div>
+    <div class="element" id="15"></div>
+    <div class="element" id="16"></div>
+    <div class="element" id="17"></div>
+    <div class="element" id="18"></div>
+    <div class="element" id="19"></div>
+    <div class="element" id="20"></div>
+    <div class="element" id="21"></div>
+    <div class="element" id="22"></div>
+    <div class="element" id="23"></div>
+    <div class="element" id="24"></div>
+    <div class="element" id="25"></div>
+    <div class="element" id="26"></div>
+    <div class="element" id="27"></div>
+    <div class="element" id="28"></div>
+    <div class="element" id="29"></div>
+    <div class="element" id="30"></div>
+    <div class="element" id="31"></div>
+    <div class="element" id="32"></div>
+    <div class="element" id="33"></div>
+    <div class="element" id="34"></div>
+    <div class="element" id="35"></div>
+    <div class="element" id="36"></div>
+    <div class="element" id="37"></div>
+    <div class="element" id="38"></div>
+    <div class="element" id="39"></div>
+    <div class="element" id="40"></div>
+    <div class="element" id="41"></div>
+    <div class="element" id="42"></div>
+    <div class="element" id="43"></div>
+    <div class="element" id="44"></div>
+    <div class="element" id="45"></div>
+    <div class="element" id="46"></div>
+    <div class="element" id="47"></div>
+    <div class="element" id="48"></div>
+    <div class="element" id="49"></div>
+    <div class="element" id="50"></div>
+    <div class="element" id="51"></div>
+    <div class="element" id="52"></div>
+    <div class="element" id="53"></div>
+    <div class="element" id="54"></div>
+    <div class="element" id="55"></div>
+    <div class="element" id="56"></div>
+    <div class="element" id="57"></div>
+    <div class="element" id="58"></div>
+    <div class="element" id="59"></div>
+    <div class="element" id="60"></div>
+    <div class="element" id="61"></div>
+    <div class="element" id="62"></div>
+    <div class="element" id="63"></div>
+    <div class="element" id="64"></div>
+    <!-- <div class="run" id="run" style="position: fixed; background: rgb(0, 0, 0); width: 400px; z-index: 999999; height: 400px; transform: rotate(180deg); display: flex; justify-content: center; align-items: center; cursor: pointer;">
+        <p style="width: auto; color: white; font-size: 14px; border: none">
+          Нажми на меня
+        </p>
+      
+      </div> -->
+  </div>
+</body>
+<script>
+  var element = document.getElementsByClassName('element');
+  var i;
+  var a = 0;
+  var elemenClor = "black";
+  var elementAttName = 'status';
+  var elementAttValue = 'active';
+  var right_bar = document.getElementsByClassName('right_bar');
+  for (i = 0; i <= right_bar[0].children.length; i++) {
+    s = i % 2;
+    if (!s & i < 8) {
+      right_bar[0].children[i].style.background = elemenClor;
+      right_bar[0].children[i].setAttribute(elementAttName, elementAttValue);
+    }
+    if (s & i > 8 & i < 16) {
+      right_bar[0].children[i].style.background = elemenClor;
+      right_bar[0].children[i].setAttribute(elementAttName, elementAttValue);
+    }
+    if (!s & i > 15 & i < 24) {
+      right_bar[0].children[i].style.background = elemenClor;
+      right_bar[0].children[i].setAttribute(elementAttName, elementAttValue);
+    }
+    if (s & i > 24 & i <= 32) {
+      right_bar[0].children[i].style.background = elemenClor;
+      right_bar[0].children[i].setAttribute(elementAttName, elementAttValue);
+    }
+    if (!s & i >= 32 & i < 40) {
+      right_bar[0].children[i].style.background = elemenClor;
+      right_bar[0].children[i].setAttribute(elementAttName, elementAttValue);
+    }
+    if (s & i > 40 & i <= 48) {
+      right_bar[0].children[i].style.background = elemenClor;
+      right_bar[0].children[i].setAttribute(elementAttName, elementAttValue);
+    }
+    if (!s & i > 47 & i <= 55) {
+      right_bar[0].children[i].style.background = elemenClor;
+      right_bar[0].children[i].setAttribute(elementAttName, elementAttValue);
+    }
+    if (s & i > 56 & i <= 64) {
+      right_bar[0].children[i].style.background = elemenClor;
+      right_bar[0].children[i].setAttribute(elementAttName, elementAttValue);
+
+    }
+  };
+  for (var r = 0; r < right_bar[0].children.length; r++) {
+    var g;
+    if (r <= 24 || r >= 40) {
+      if (Boolean(element[r].attributes[2]) == true) {
+        element[r].innerHTML = '<div class="checker" id="' + r + '""></div>';
+        element[r].classList.add("pointer");
+        element[r].onclick = function (event) {
+        }
+      }
+    }
+    // 
+    if (r <= 22) {
+      if (Boolean(element[r].attributes[2]) == true) {
+        element[r].innerHTML = '<div class="checker_2" id="' + r + '""></div>';
+        element[r].classList.add("pointer");
+        element[r].onclick = function (event) {
+
+        }
+      }
+    }
+    // 
+    if (r >= 24 & r <= 39) {
+      if (Boolean(element[r].attributes[2]) == true) {
+        element[r].classList.add("pointer");
+      }
+    }
+  }
+</script>
+
+<script src="/socket.io/socket.io.js"></script>
+<!-- <script>
+  var socket = io();
+  var con;
+  socket.emit('con', con);
+  socket.on('con', function (con) {
+    // console.log(con);
+  })
+  var preLoadValue = document.querySelector("#nameV");
+  var preLoadButton = document.querySelector("#nameB");
+  var formName = document.querySelector('#formName');
+  var idC = document.querySelector('#c');
+  var name;
+  preLoadButton.onclick = function () {
+    name = preLoadValue.value;
+    document.querySelector("#m").value = name;
+    idC.value = name;
+
+    var g;
+    g = document.querySelector("#c").value;
+    console.log(g);
+  }
+  formName.style.display = "none";
+  $(function () {
+    var socket = io();
+    $('form').submit(function send() {
+
+      console.log(g)
+      socket.emit('chat message', $('#m').val());
+      $('#m').val('');
+      return false;
+    });
+    socket.on('chat message', function (msg) {
+
+      $('#messages').append($('<li>').text(g + ' : ' + msg));
+
+
+    });
+  });
+</script> -->
+<script>
+  'use strict';
+  var checkerId = 0;
+  var checkerLanght = document.getElementsByClassName('right_bar');
+  var select = checkerLanght;
+  var socket = io();
+  var s;
+  var k = 0;
+  var j = 0;
+  var o = true;
+  var x = true;
+  var d = 0;
+  var u = 0;
+  var g = 0;
+  var n = 0;
+  var nameClass;
+  var nn;
+  var iiii = "black";
+  var ssss;
+  var zzzz = 0;
+
+  for (var checkerId = 0; checkerId < checkerLanght[0].children.length; checkerId++) {
+    if (Boolean(checkerLanght[0].children[checkerId].attributes.status) == true) {
+      for (var i = 1; i <= checkerLanght[0].children.length; i++) {
+
+        checkerLanght[0].children[checkerId].onclick = function qq() {
+          s = this.id;
+          socket.emit('aaa', s, checkerId);
+          for (var bb = 0; bb < 4; bb++) {
+
+            socket.on('aaa', function (s, checkerId) {
+              function settings() {
+                for (var ee = 0; ee <= 63; ee++) {
+                  if (document.getElementsByClassName('right_bar')[0].children[ee].className == "element pointer" && document.getElementsByClassName('right_bar')[0].children[ee].style.cursor == "pointer") {
+                    // end 
+                    if (Boolean(document.getElementsByClassName('right_bar')[0].children[ee].children[0]) == false) {
+                      document.getElementsByClassName('right_bar')[0].children[ee].style.background = "yellow";
+                    }
+                    var wwww = s - 1 + 8;
+                    var eeee = s - 1 + 10;
+                    var rrrr = s - 1 - 6;
+                    var tttt = s - 1 - 8;
+                    var nameChecker = document.getElementsByClassName('right_bar')[0].children[s - 1].children[0].className;
+
+                    if (nameChecker == "checker_2") {
+
+                      if (wwww >= 0 && wwww < 65) {
+                        if (Boolean(document.getElementsByClassName('right_bar')[0].children[wwww - 1].children[0]) == true && document.getElementsByClassName('right_bar')[0].children[wwww - 1].children[0].className != nameChecker) {
+                          wwww = s - 1 + 15;
+                        }
+                        // if(document.getElementsByClassName('right_bar')[0].children[wwww - 1].children[0].className){
+                        if (document.getElementsByClassName('right_bar')[0].children[wwww - 1]) {
+                          // console.log(document.getElementsByClassName('right_bar')[0].children[wwww - 1].id)
+                          if (Boolean(document.getElementsByClassName('right_bar')[0].children[wwww - 1].children[0]) == false) {
+                            if (document.getElementsByClassName('right_bar')[0].children[wwww - 1].className == "element pointer") {
+                              document.getElementsByClassName('right_bar')[0].children[wwww - 1].style.background = iiii;
+                            }
+                          }
+                        }
+                      }
+                      if (rrrr > 0 && rrrr < 65) {
+                        if (document.getElementsByClassName('right_bar')[0].children[rrrr - 1]) {
+
+                          if (Boolean(document.getElementsByClassName('right_bar')[0].children[rrrr - 1].children[0]) == true && document.getElementsByClassName('right_bar')[0].children[rrrr - 1].children[0].className != nameChecker) {
+                            rrrr = s - 1 - 13;
+                            if (document.getElementsByClassName('right_bar')[0].children[rrrr - 1].className == "element pointer") {
+                              document.getElementsByClassName('right_bar')[0].children[rrrr - 1].style.background = iiii;
+                            }
+                          }
+                        }
+                      }
+                      // 
+
+                      // 
+                      if (eeee >= 0 && eeee < 65) {
+                        if (Boolean(document.getElementsByClassName('right_bar')[0].children[eeee - 1].children[0]) == true && document.getElementsByClassName('right_bar')[0].children[eeee - 1].children[0].className != nameChecker) {
+                          eeee = s - 1 + 19;
+                        }
+                        if (document.getElementsByClassName('right_bar')[0].children[eeee - 1]) {
+
+                          if (Boolean(document.getElementsByClassName('right_bar')[0].children[eeee - 1].children[0]) == false) {
+                            if (document.getElementsByClassName('right_bar')[0].children[eeee - 1].className == "element pointer") {
+
+                              document.getElementsByClassName('right_bar')[0].children[eeee - 1].style.background = iiii;
+                            }
+                          }
+                        }
+                      }
+                      if (tttt >= 0 && tttt < 65) {
+                        if (Boolean(document.getElementsByClassName('right_bar')[0].children[tttt - 1].children[0]) == true && document.getElementsByClassName('right_bar')[0].children[tttt - 1].children[0].className != nameChecker) {
+                          tttt = s - 1 - 17;
+                          if (document.getElementsByClassName('right_bar')[0].children[tttt - 1]) {
+                            if (document.getElementsByClassName('right_bar')[0].children[tttt - 1].className == "element pointer") {
+
+                              document.getElementsByClassName('right_bar')[0].children[tttt - 1].style.background = iiii;
+                            }
+                            //  console.log(wwww)
+                          }
+                        }
+                      }
+
+                      // 
+                      // 
+                      // 
+                      // 
+                      // checker root
+
+                            // zzzz = 0;
+                    for (var kkkk = 0; kkkk < 64; kkkk++) {
+                      if (Boolean(checkerLanght[0].children[kkkk].children[0]) == true) {
+                        if (Boolean(checkerLanght[0].children[kkkk].children[0].attributes.root) == true) {
+                          if (Boolean(document.getElementsByClassName('right_bar')[0].children[s - 1].children[0]) == true) {// && document.getElementsByClassName('right_bar')[0].children[eeee - 1].children[0].className != nameChecker
+                            if(zzzz >= 0 && zzzz < 65){
+                          for(var zzzz = 0; zzzz < 65; zzzz++)
+                              // console.log(llll)
+                              // zzzz = zzzz + 9;
+                              console.log(zzzz)
+                              // }
+                            }  
+                            }
+                           
+                          }
+                          //
+                        }
+                      }
+
+                    }
+                    // 
+                    if (nameChecker == "checker") {
+                      // if(document.getElementsByClassName('right_bar')[0].children[rrrr - 1]){
+
+                      if (document.getElementsByClassName('right_bar')[0].children[rrrr - 1]) {
+                        if (Boolean(document.getElementsByClassName('right_bar')[0].children[rrrr - 1].children[0]) == true && document.getElementsByClassName('right_bar')[0].children[rrrr - 1].children[0].className != nameChecker) {
+
+                          if (document.getElementsByClassName('right_bar')[0].children[rrrr - 1]) {
+                            rrrr = s - 1 - 13;
+                          }
+                        }
+                      }
+                      if (rrrr > 0 && rrrr < 65) {
+                        if (Boolean(document.getElementsByClassName('right_bar')[0].children[rrrr - 1].children[0]) == false) {
+                          if (document.getElementsByClassName('right_bar')[0].children[rrrr - 1]) {
+
+                            if (document.getElementsByClassName('right_bar')[0].children[rrrr - 1].className == "element pointer") {
+                              document.getElementsByClassName('right_bar')[0].children[rrrr - 1].style.background = iiii;
+                            }
+                          }
+                        }
+                      }
+                      if (wwww >= 0 && wwww < 65) {
+                        if (Boolean(document.getElementsByClassName('right_bar')[0].children[wwww - 1].children[0]) == true && document.getElementsByClassName('right_bar')[0].children[wwww - 1].children[0].className != nameChecker) {
+                          if (document.getElementsByClassName('right_bar')[0].children[wwww - 1]) {
+
+                            if (document.getElementsByClassName('right_bar')[0].children[wwww - 1]) {
+
+                              wwww = s - 1 + 15;
+
+                              document.getElementsByClassName('right_bar')[0].children[wwww - 1].style.background = iiii;
+                              //  console.log(wwww)
+                            }
+                          }
+                        }
+                      }
+                      if (document.getElementsByClassName('right_bar')[0].children[tttt - 1]) {
+
+                        if (Boolean(document.getElementsByClassName('right_bar')[0].children[tttt - 1].children[0]) == true && document.getElementsByClassName('right_bar')[0].children[tttt - 1].children[0].className != nameChecker) {
+                          tttt = s - 1 - 17;
+                        }
+                      }
+                      if (tttt > 0 && tttt < 65) {
+                        if (Boolean(document.getElementsByClassName('right_bar')[0].children[tttt - 1].children[0]) == false) {
+                          // if(document.getElementsByClassName('right_bar')[0].children[iiii - 1]){
+                          if (document.getElementsByClassName('right_bar')[0].children[tttt - 1]) {
+
+                            if (document.getElementsByClassName('right_bar')[0].children[tttt - 1].className == "element pointer") {
+                              document.getElementsByClassName('right_bar')[0].children[tttt - 1].style.background = iiii;
+
+                            }
+                          }
+                        }
+                      }
+                      if (eeee >= 0 && eeee < 65) {
+                        if (document.getElementsByClassName('right_bar')[0].children[wwww - 1]) {
+
+                          if (Boolean(document.getElementsByClassName('right_bar')[0].children[eeee - 1].children[0]) == true && document.getElementsByClassName('right_bar')[0].children[eeee - 1].children[0].className != nameChecker) {
+                            eeee = s - 1 + 19;
+                            document.getElementsByClassName('right_bar')[0].children[eeee - 1].style.background = iiii;
+
+                            //  console.log(eeee)
+                          }
+                        }
+                        // 
+
+                      }
+                      // 
+                      // 
+                    }
+
+
+                    // 
+
+                  }
+                }
+              }
+
+              if (o == false) {
+                //run
+                checkerLanght[0].children[s - 1].setAttribute("color", "yellow");
+                if (Boolean(checkerLanght[0].children[s - 1].children[0]) == true && document.getElementsByClassName('right_bar')[0].children[s - 1].style.cursor == "pointer") {
+                  if (checkerLanght[0].children[s - 1].style.background == "black") {
+                    checkerLanght[0].children[s - 1].style.background = "green";
+                    settings();
+                  } else if (checkerLanght[0].children[s - 1].style.background == "green") {
+                    settings();
+
+                    checkerLanght[0].children[s - 1].style.background = "black";
+                    for (var ee = 0; ee <= 63; ee++) {
+                      if (document.getElementsByClassName('right_bar')[0].children[ee].className == "element pointer") {
+                        // end 
+                        if (Boolean(document.getElementsByClassName('right_bar')[0].children[ee].children[0]) == false) {
+                          document.getElementsByClassName('right_bar')[0].children[ee].style.background = "yellow";
+                        }
+                      }
+                    }
+
+                  } else {
+                    for (var ee = 0; ee <= 63; ee++) {
+                      if (document.getElementsByClassName('right_bar')[0].children[ee].className == "element pointer") {
+                        // end 
+                        if (Boolean(document.getElementsByClassName('right_bar')[0].children[ee].children[0]) == false) {
+                          document.getElementsByClassName('right_bar')[0].children[ee].style.background = "yellow";
+                        }
+                      }
+                    }
+                    // checkerLanght[0].children[s - 1].style.background = "black";
+
+                    // console.log("dwd")
+                  }
+                  for (var g = 0; g <= 63; g++) {
+
+                    if (checkerLanght[0].children[g].style.background == "green") {
+                      // debugger
+
+                      j = g;
+                      nameClass = checkerLanght[0].children[g].children[0].className;
+                      checkerLanght[0].children[s - 1].style.background = "black";
+                      // console.log(g)
+                      nn = checkerLanght[0].children[s - 1].children[0].id;
+
+                    }
+
+                  }
+
+                } else {
+
+                  if (Boolean(checkerLanght[0].children[s - 1].children[0]) != true && document.getElementsByClassName('right_bar')[0].children[s - 1].style.cursor == "pointer") { //&& checkerLanght[0].children[s-1].style.cursor == "pointer"
+                    checkerLanght[0].children[j].innerHTML = '';
+
+                    checkerLanght[0].children[s - 1].innerHTML = '<div class="' + nameClass + '" id="' + nn + '"></div>';
+                    for(var kkkk = 0; kkkk < 64; kkkk++){
+                      if(Boolean(checkerLanght[0].children[kkkk].children[0]) == true){
+                        if(Boolean(checkerLanght[0].children[kkkk].children[0].attributes.root) == true){
+                          checkerLanght[0].children[s - 1].innerHTML = '<div class="' + nameClass + '" id="' + nn + '" root ></div>';
+                        }
+                      }
+                    }
+                    for (var ee = 0; ee <= 63; ee++) {
+                      if (document.getElementsByClassName('right_bar')[0].children[ee].className == "element pointer") {
+                        // end 
+                        if (Boolean(document.getElementsByClassName('right_bar')[0].children[ee].children[0]) == false) {
+                          document.getElementsByClassName('right_bar')[0].children[ee].style.background = "yellow";
+                        }
+                      }
+                    }
+                    for (var k = j; s - 1 <= k; k--) {
+                      var y = s;
+                      var t = ++y + j;
+                      var i = t / 2;
+                      if (checkerLanght[0].children[i - 1].children[0].className != nameClass) {
+                        checkerLanght[0].children[i - 1].innerHTML = '';
+                        for (var ee = 0; ee <= 63; ee++) {
+                          if (document.getElementsByClassName('right_bar')[0].children[ee].className == "element pointer") {
+                            // end 
+                            if (Boolean(document.getElementsByClassName('right_bar')[0].children[ee].children[0]) == false) {
+                              document.getElementsByClassName('right_bar')[0].children[ee].style.background = "yellow";
+                            }
+                          }
+                        }
+
+                        // 
+                        // 
+                        // nameClass == null;
+                      }
+                    }
+                    for (var k = j; k <= s - 1; k++) {
+                      var y = s;
+                      var t = ++y + j;
+                      var i = t / 2;
+                      checkerLanght[0].children[i - 1].innerHTML = '';
+                      // break
+                    }
+
+
+                  }
+
+                  for (var aaaa = 0; aaaa < 64; aaaa++) {
+                    ssss = document.getElementsByClassName('right_bar')[0].children[aaaa].id;
+                    if (Boolean(document.getElementsByClassName('right_bar')[0].children[ssss].children[0]) == false) {
+                      if (document.getElementsByClassName('right_bar')[0].children[ssss].className == "element pointer") {
+                        // end 
+                        document.getElementsByClassName('right_bar')[0].children[ssss].style.background = "yellow";
+                      }
+                    }
+
+                  }
+
+
+                }
+                //end
+
+                // settings();
+
+                // console.clear();
+
+              } else {
+                // alert("Да будет свет");
+                o = false;
+              }
+              var cc = 0;
+
+
+              function test() {
+                var ll;
+                for (var dd = 0; dd < 65; dd++) {
+                  if (Boolean(checkerLanght[0].children[dd].children[0]) == true) {
+                    if (checkerLanght[0].children[dd].children[0].className == "checker")
+                      // if (checkerLanght[0].children[dd].children[0].id != 63) {
+                      ll = checkerLanght[0].children[dd].children[0].id;
+                    // console.log(ll);
+                    checkerLanght[0].children[dd].innerHTML = '';
+                    // }
+
+                  }
+                }
+              }
+
+              for (var dddd; dddd < 64; dddd++) {
+                if (document.getElementsByClassName('right_bar')[0].children[dddd].style.background == "black") {
+                  document.getElementsByClassName('right_bar')[0].children[dddd].style.cursor = "pointer";
+
+
+                }
+                if (document.getElementsByClassName('right_bar')[0].children[dddd].style.background != "black") {
+                  document.getElementsByClassName('right_bar')[0].children[dddd].style.cursor = "default";
+                }
+              }
+
+              for(var hhhh = 0; hhhh < 64; hhhh++){
+             if(Boolean(document.getElementsByClassName('right_bar')[0].children[hhhh].children[0]) == true){
+               var gggg = document.getElementById(document.getElementsByClassName('right_bar')[0].children[s - 1].children[0].id);
+               if (document.getElementsByClassName('right_bar')[0].children[s - 1].id == 58 && document.getElementsByClassName('right_bar')[0].children[s - 1].children[0].className == "checker_2" || document.getElementsByClassName('right_bar')[0].children[s - 1].id == 60  && document.getElementsByClassName('right_bar')[0].children[s - 1].children[0].className == "checker_2" || document.getElementsByClassName('right_bar')[0].children[s - 1].id == 62 && document.getElementsByClassName('right_bar')[0].children[s - 1].children[0].className == "checker_2"  || document.getElementsByClassName('right_bar')[0].children[s - 1].id == 64 && document.getElementsByClassName('right_bar')[0].children[s - 1].children[0].className == "checker_2" ) {
+                
+                // if(document.getElementsByClassName('right_bar')[0].children[s - 1].id == 64){
+                  var rootThisId = document.getElementsByClassName('right_bar')[0].children[s - 1].id;
+                  // document.getElementsByClassName('right_bar')[0].children[rootThisId-1].children[0].setAttribute("root", '');
+                  document.getElementsByClassName('right_bar')[0].children[rootThisId-1].children[0].setAttribute("root", '');
+
+                // }
+                // console.log(gggg-1)
+                
+              }
+            }
+            if(Boolean(rootThisId) == true){
+              // console.log(Boolean(rootThisId));
+              var jjjj = [rootThisId - 1];
+            }
+            document.getElementsByClassName('right_bar')[0].children[jjjj].children[0].setAttribute("root", '');
+              }
+            });
+          }
+
+        }
+
+        //for test
+
+
+      }
+
+    }
+  }
+  // test();
+  setInterval(function () {
+    for (var dd = 0; dd <= 63; dd++) {
+      if (Boolean(checkerLanght[0].children[dd].children[0]) == true) {
+        if (checkerLanght[0].children[dd].children[0].id < 26) {
+          // console.log(checkerLanght[0].children[dd].children[0].id);
+          var zz = dd;
+        }
+        if (checkerLanght[0].children[dd].children[0].id > 40) {
+          // console.log(checkerLanght[0].children[dd].children[0]);
+
+          var xx = dd;
+        }
+
+
+      }
+      //
+      // if (Boolean(document.getElementsByClassName('right_bar')[0].children[dd].children[0]) == true ) {
+
+      if (document.getElementsByClassName('right_bar')[0].children[dd].style.background == "black") {
+        document.getElementsByClassName('right_bar')[0].children[dd].style.cursor = "pointer";
+
+
+      }
+      if (document.getElementsByClassName('right_bar')[0].children[dd].style.background != "black") {
+        document.getElementsByClassName('right_bar')[0].children[dd].style.cursor = "default";
+      }
+    }
+    // console.log(xx)
+    var disable;
+    if (xx == undefined) {
+      document.querySelector('body').innerHTML = '<p style="font-size: 3em">Игрок за красных проиграл </p>';
+      setTimeout(function () {
+        location.reload();
+      }, 5000)
+    }
+    // console.log(zz)
+    if (zz == undefined) {
+      document.querySelector('body').innerHTML = '<p style="font-size: 3em">Игрок за синих проиграл</p>';
+      setTimeout(function () {
+        location.reload();
+      }, 5000)
+    }
+    // 
+    // 
+    // 
+    // console.clear()
+    // socket.emit('disable', console.log(disable));  
+    // socket.on('disable', function (disable) { 
+    //   console.log(disable);
+    // })
+
+    // settings();
+
+    
+  }, 100);
+
+</script>
+<script>
+  for (var aaaa = 0; aaaa < 64; aaaa++) {
+    ssss = document.getElementsByClassName('right_bar')[0].children[aaaa].id;
+    if (Boolean(document.getElementsByClassName('right_bar')[0].children[ssss].children[0]) == false) {
+      if (document.getElementsByClassName('right_bar')[0].children[ssss].className == "element pointer") {
+        // end 
+        // console.log(document.getElementsByClassName('right_bar')[0].children[ssss]);
+        document.getElementsByClassName('right_bar')[0].children[ssss].style.background = "yellow";
+      }
+    }
+
+  }
+</script>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .black {
+    background: #000;
+  }
+
+  .checker_2 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    outline: 1px solid rgb(255, 255, 255);
+    border-radius: 100%;
+    background: rgb(138, 7, 214);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(180deg);
+  }
+
+  .checker_2::before {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    border: solid;
+    border-radius: 100%;
+  }
+
+  .checker_2::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    border: solid;
+    border-radius: 100%;
+  }
+
+  .checker {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    outline: 1px solid rgb(255, 255, 255);
+    border-radius: 100%;
+    background: rgb(214, 7, 7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(180deg);
+
+  }
+
+  .checker::before {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    border: solid;
+    border-radius: 100%;
+  }
+
+  .checker::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    border: solid;
+    border-radius: 100%;
+  }
+
+  .pointer {
+    /* cursor: pointer; */
+  }
+
+  element {
+    width: 80px;
+    height: 80px;
+    outline: 1px solid black;
+  }
+
+  body {
+    font: 13px Helvetica, Arial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .right_bar {
+    width: 598px;
+    position: fixed;
+    /* right: 0; */
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    /* transform: rotate(180deg); */
+  }
+
+  .right_bar * {
+    width: 73px;
+    height: 73px;
+    border: 1px solid red;
+  }
+
+  .left_bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    border: 1px solid;
+    overflow: auto;
+  }
+
+  form {
+    background: #000;
+    padding: 3px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+  }
+
+  #m {
+    border: 0;
+    padding: 10px;
+    width: 80%;
+    margin-right: 0.5%;
+  }
+
+  #c {
+    border: 0;
+    padding: 10px;
+    width: 20%;
+    margin-right: 0.5%;
+    position: fixed;
+    margin-left: -100vw;
+    /* visibility: hidden; */
+  }
+
+  form button {
+    /* width: 9%; */
+    background: rgb(130, 224, 255);
+    border: none;
+    padding: 10px;
+    position: absolute;
+    right: 6px;
+  }
+
+  #messages {
+    list-style-type: none;
+    margin: 0;
+    padding-top: 60px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column-reverse;
+
+  }
+
+  #messages li {
+    padding: 5px 10px;
+    widows: 100%;
+  }
+
+  #messages li:nth-child(odd) {
+    background: #eee;
+  }
+</style>
+
+</html>
