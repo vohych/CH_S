@@ -1,1 +1,1 @@
-CH_S
+Checkers
